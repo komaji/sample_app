@@ -1,0 +1,16 @@
+/Users/usr0600369/.rbenv/versions/2.2.2/bin/ruby -r ./siteconf20150611-17633-ewq78e.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling hitimes.c
+compiling hitimes_instant_clock_gettime.c
+compiling hitimes_instant_osx.c
+compiling hitimes_instant_windows.c
+compiling hitimes_interval.c
+compiling hitimes_stats.c
+linking shared-object hitimes/2.2/hitimes.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 hitimes.bundle ./.gem.20150611-17633-1alx5lm/hitimes/2.2
