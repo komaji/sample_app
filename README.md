@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/komaji/sample_app.svg?branch=static-pages)](https://travis-ci.org/komaji/sample_app)
+
 # Ruby on Rails Tutorial: sample application
 
 This is the sample application for the
