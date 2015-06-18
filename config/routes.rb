@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'signup'  => 'users#new'
-  
+  resources :users
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -59,4 +60,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
 end
