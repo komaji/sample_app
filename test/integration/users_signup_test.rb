@@ -12,6 +12,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
     assert_select 'div.alert.alert-danger'
+    assert_select 'div#error_explanation'
   end
 
   test "valid signup information" do
