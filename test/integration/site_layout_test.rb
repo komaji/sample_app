@@ -6,7 +6,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
   
-  test "layout links without login" do
+  test "layout links when not logged in" do
     get root_path
     assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, count: 2
@@ -17,7 +17,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path
   end
 
-  test "layout links with login" do
+  test "layout links when logged in" do
     log_in_as(@user)
     get root_path
     assert_template 'static_pages/home'
