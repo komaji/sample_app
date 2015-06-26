@@ -76,7 +76,7 @@ Rails.application.configure do
     :user_name      => ENV['LOLIPOP_MAIL_USERNAME'],
     :password       => ENV['LOLIPOP_MAIL_PASSWORD'],
     # 自分のロリポップのdomain，以下は@alotofweの場合
-    :domain         => 'kojikoji.cheap',
+    :domain         => 'kojikoji.cheap.jp',
     :enable_starttls_auto => true
   }
 
