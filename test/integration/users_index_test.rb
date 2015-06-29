@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'test_helper'
 
 class UsersIndexTest < ActionDispatch::IntegrationTest
@@ -29,4 +30,26 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'a', text: 'delete', count: 0
   end
+
+  test "/users/:id activated" do
+    log_in_as(@admin) #ログインする
+    get user_path(@non_admin) #@non_adminのプロフィールを見に行く
+    assert_template 'users/show' #プロフィールが表示されていることを確認
+  end
+
+  test "/users/:id inactivated" do
+    log_in_as(@admin) #ログインする
+    @non_admin.update_attribute(:activated, false)  #@non_adminのactivatedをfalseにする
+    get user_path(@non_admin) #@non_adminのプロフィールを見に行く
+    follow_redirect!
+    assert_template 'static_pages/home' #homeが表示されていることを確認
+  end
+
+  test "/users" do
+    log_in_as(@admin) #ログインする
+    @non_admin.update_attribute(:activated, false)  #@non_adminのactivateをfalseにする
+    get users_path  #usersを見る
+    assert_select 'a[href=?]', user_path(@non_admin), text: @non_admin.name, count: 0  #@non_adminが表示されていないことを確認 
+  end
+  
 end
