@@ -49,8 +49,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     log_in_as(@admin) #ログインする
     @non_admin.update_attribute(:activated, false)  #@non_adminのactivateをfalseにする
     get users_path
-    i = assigns(:users).total_pages
-    for page in 1..i do
+    1.upto assigns(:users).total_pages do |page|
       get users_path, page: page   #usersを見る
       assert_select 'a[href=?]', user_path(@non_admin), text: @non_admin.name, count: 0  #@non_adminが表示されていないことを確認
     end
